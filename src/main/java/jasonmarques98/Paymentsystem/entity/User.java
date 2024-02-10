@@ -22,8 +22,8 @@ public class User implements UserDetails {
     private String name;
     private String email;
     private String password;
-    private String verificationCode;
-    private boolean enabled;
+    private String verificationCode; // Codigo de verificação usado para ativação de conta
+    private boolean enabled; // Verifica se a conta está ativa
 
     public User(Long id, String name, String email, String password, String verificationCode, boolean enabled) {
         this.id = id;
