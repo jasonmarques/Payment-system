@@ -1,6 +1,8 @@
 package jasonmarques98.Paymentsystem.controller;
 
+import jakarta.validation.Valid;
 import jasonmarques98.Paymentsystem.dto.UserRequest;
+import jasonmarques98.Paymentsystem.dto.UserResponse;
 import jasonmarques98.Paymentsystem.entity.User;
 import jasonmarques98.Paymentsystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +21,9 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public ResponseEntity<User> registerUser(@RequestBody UserRequest userRequest) {
+    public ResponseEntity<UserResponse> registerUser(@RequestBody @Valid UserRequest userRequest) {
         User user = userRequest.toModel();
-        User userSaved = userService.registerUser(user);
+        UserResponse userSaved = userService.registerUser(user);
         return ResponseEntity.ok().body(userSaved);
 
     }
